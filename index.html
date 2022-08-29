@@ -8,9 +8,89 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <canvas></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="0.1" />
-    <input type="color" id="color" />
+    <div class="canvas-paint">
+      <canvas></canvas>
+      <div class="color-options">
+        <input type="color" id="color" />
+        <div
+          class="color-option"
+          style="background-color: #1abc9c"
+          data-color="#1abc9c"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #2ecc71"
+          data-color="#2ecc71"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #3498db"
+          data-color="#3498db"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #9b59b6"
+          data-color="#9b59b6"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #34495e"
+          data-color="#34495e"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #f1c40f"
+          data-color="#f1c40f"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #e67e22"
+          data-color="#e67e22"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #e74c3c"
+          data-color="#e74c3c"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #ecf0f1"
+          data-color="#ecf0f1"
+        ></div>
+        <div
+          class="color-option"
+          style="background-color: #95a5a6"
+          data-color="#95a5a6"
+        ></div>
+      </div>
+    </div>
+
+    <div class="btns">
+      <input
+        id="line-width"
+        type="range"
+        min="1"
+        max="10"
+        value="5"
+        step="0.1"
+      />
+      <button id="mode-btn"><i class="fa-solid fa-fill-drip"></i> Fill</button>
+      <button id="destory-btn"><i class="fa-solid fa-bomb"></i> Destory</button>
+      <button id="eraser-btn"><i class="fa-solid fa-eraser"></i> Erase</button>
+
+      <label for="file"
+        ><i class="fa-solid fa-photo-film"></i> Add Photo
+        <input type="file" accept="image/*" id="file"
+      /></label>
+      <input type="text" id="text" placeholder="Add text here :)" />
+      <button id="save">
+        <i class="fa-solid fa-floppy-disk"></i> Save image
+      </button>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/615f75c040.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js"></script>
   </body>
 </html>
