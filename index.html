@@ -9,6 +9,36 @@
   </head>
   <body>
     <canvas></canvas>
+    <input type="range" id="line-width" min="0" max="10" step="0.5" />
+    <div class="color-options">
+      <input type="color" id="color-btn" />
+      <div
+        class="color-option"
+        style="background-color: #ffc312"
+        data-color="#FFC312"
+      ></div>
+      <div
+        class="color-option"
+        style="background-color: #f79f1f"
+        data-color="#F79F1F"
+      ></div>
+      <div
+        class="color-option"
+        style="background-color: #ee5a24"
+        data-color="#EE5A24"
+      ></div>
+      <div
+        class="color-option"
+        style="background-color: #ea2027"
+        data-color="#EA2027"
+      ></div>
+      <div
+        class="color-option"
+        style="background-color: #c4e538"
+        data-color="#C4E538"
+      ></div>
+    </div>
+    <button id="mode-btn">fill</button>
   </body>
   <script src="app.js"></script>
 </html>
