@@ -1,27 +1,21 @@
-@import "reset.css";
-
 body {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 canvas {
+  width: 800px;
   height: 800px;
-  width: 1000px;
-  border: 2px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
 }
 
-.color-options {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.color-option {
-  width: 50px;
+button {
   height: 50px;
-  cursor: pointer;
+  width: 100px;
+  background-color: orange;
+}
+
+.color {
+  height: 50px;
+  width: 50px;
 }
