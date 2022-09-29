@@ -1,9 +1,12 @@
+const fileInput = document.getElementById("file");
+const textInput = document.getElementById("text");
 const eraserBtn = document.getElementById("eraser");
 const clearAllBtn = document.getElementById("clear-all");
 const colorBtn = document.getElementById("color");
 const colorOption = Array.from(document.getElementsByClassName("color"));
 const modeBtn = document.getElementById("mode-btn");
 const lineWidth = document.getElementById("range-width");
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -63,7 +66,7 @@ function colorStyle(colorValue) {
 
 function onColorClick(event) {
   const colorValue = event.target.dataset.color;
-  colorStyle(colorValue);
+  console.log(colorValue);
   colorBtn.value = colorValue;
 }
 
@@ -83,6 +86,21 @@ function onEraserClick() {
   modeBtn.innerText = "Fill";
 }
 
+function onTextInput(event) {
+  console.log(textInput.value);
+}
+
+function onFileInput(event) {
+  const file = event.target.files[0];
+  const url = URL.createObjectURL(file);
+  const image = new Image();
+  image.onload = function () {
+    ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  };
+  fileInput.value = null;
+  console.log(url);
+}
+
 canvas.addEventListener("mousemove", onMouseMove);
 canvas.addEventListener("mousedown", onMouseDown);
 canvas.addEventListener("mouseup", onMouseUp);
@@ -95,3 +113,6 @@ colorBtn.addEventListener("change", onColorChange);
 modeBtn.addEventListener("click", onModeBtn);
 clearAllBtn.addEventListener("click", onClearAll);
 eraserBtn.addEventListener("click", onEraserClick);
+
+fileInput.addEventListener("change", onFileInput);
+canvas.addEventListener("dblclick", onTextInput);
