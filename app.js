@@ -11,10 +11,11 @@
 
 // document.fonts.add(BungeeSpiceFontFace);
 // log.textContent += `Bungee Spice font: ${BungeeSpiceFontFace.status}\n`;
+const save = document.getElementById("save");
+const fileInput = document.getElementById("file");
 const fontModeBtn = document.getElementById("font-mode");
 const currentFont = document.querySelector(".current-font");
 const fontBtn = Array.from(document.getElementsByClassName("font-btn"));
-const checkBtn = document.getElementById("check-btn");
 const textWidth = document.getElementById("text-width");
 const textInput = document.getElementById("text");
 
@@ -40,13 +41,6 @@ const SilkScreenFontFace = new FontFace(
 );
 
 document.fonts.add(BungeeFontFace, SilkScreenFontFace);
-
-textWidth.onchange = function (event) {
-  console.log(event.target.value);
-};
-checkBtn.onclick = function () {
-  console.log(textWidth.value);
-};
 
 canvas.ondblclick = function (event) {
   const text = textInput.value;
@@ -90,4 +84,25 @@ fontModeBtn.onclick = function () {
   }
 };
 
+function onFileChange(event) {
+  const file = event.target.files[0];
+  const url = URL.createObjectURL(file);
+  const image = new Image();
+  image.src = url;
+  image.onload = function () {
+    ctx.drawImage(image, 0, 0, 650, 650);
+    fileInput.value = null;
+  };
+}
+
+function onSaveClick(event) {
+  const url = canvas.toDataURL();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
+}
+
 fontBtn.forEach((font) => font.addEventListener("click", onFontClick));
+fileInput.addEventListener("change", onFileChange);
+save.addEventListener("click", onSaveClick);
